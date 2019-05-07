@@ -10,11 +10,13 @@ import ScrollUpButton from "react-scroll-up-button";
 
 import './App.css';
 import Footer from './components/Footer.js';
+import Loader from './components/Loader.js';
 
 class App extends Component {
     constructor(props){
         super(props);
         this.footerElement = React.createRef();
+        this.loaderElement = React.createRef();
     }
     state = {
         results : [],
@@ -35,6 +37,19 @@ class App extends Component {
 
     componentWillMount(){
         document.getElementById('root').style.opacity = 1;
+    }
+
+    componentDidMount(){
+        window.addEventListener('load', () => {
+            this.loaderElement.current.hide({loading: true});
+            window.setTimeout(() => {
+                document.querySelector('.loader').style.opacity = 0;
+            }, 1500)
+            window.setTimeout(() => {
+                document.querySelector('.loader').style.display = 'none';
+                document.querySelector('.loader').style.zIndex = -999;
+            }, 1800)
+        });
     }
 
     setAxis = (axis) => {
@@ -66,6 +81,7 @@ class App extends Component {
             results: results,
             str: '"'+str+'"',
             definition: results[0].definition,
+            photo: results[0].photo,
             show: {display: 'block'},
             show_opt: this.state.show_opt
         };
@@ -149,6 +165,7 @@ class App extends Component {
                     }
                 />
                 <ScrollUpButton />
+                <Loader ref={this.loaderElement} />
                 <Finder getAxis={this.getAxis} setResult={this.setResult} showAlert={this.showAlert} />
                 <div className="about" style={this.state.show} id="about">
                     <MyMap setCurrentMap={this.setCurrentMap} setAxis={this.setAxis} showAlert={this.showAlert} setInfo={this.setInfo} />
@@ -157,6 +174,7 @@ class App extends Component {
                             <span>Los mejores resultados para: </span>
                             {this.state.str}
                         </h3>
+                        <img src={this.state.photo} class="img-fluid mb-3" />
                         <p className="mb-3 mt-3"><b>{this.state.definition}</b></p>
                         <h5>Restaurantes que ofrecen este platillo:</h5>
                         <div className="row about-bottom-w3l text-center pt-lg-5">

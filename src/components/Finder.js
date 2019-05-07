@@ -112,10 +112,10 @@ export class Finder extends Component {
                             <div className="w3l-overlay">
                                 <div className="banner-text text-center container">
                                     {/* <img src={'https://yucafood.ingesistemas.net/images/logo_app.jpg'} className="img-fluid"  /> */}
-                                    <img src={'https://yucafood.ingesistemas.net/images/logo.png'} className="img-fluid"  />
+                                    <img src={'https://yucafood.ingesistemas.net/images/logo_app.jpg'} className="img-fluid" style={{width:'15%', borderRadius: '100px'}}  />
                                     <img src={'https://yucafood.ingesistemas.net/images/logo_webapp.jpg'} className="img-fluid" style={{width:'15%',marginLeft:'5%'}}  />
-                                    <h3 className="text-white mb-md-4 mb-3">Encuentra los mejores 
-                                        <span> platillos</span> cerca de <span>ti</span>
+                                    <h3 className="text-white mb-md-4 mb-3 mt-3">Los mejores platillos típicos de
+                                        <span> Yucatán</span> cerca de <span>ti</span>
                                     </h3>
                                     <p className="movetxt text-white mb-4">Powered by YucaFood</p>
                                     <div className="search-agile">
@@ -123,11 +123,16 @@ export class Finder extends Component {
                                             {/* <input id="searchString" type="search" name="search" placeholder="Busca aquí..." required="" /> */}
                                             <select id="slim-select" name="seatch">
                                                 <option value="0">Lo más buscado...</option>
-                                                <option value="cochinita pibil">Cochinita Pibil</option>
+                                                <option value="salbut">Salbut</option>
+                                                <option value="caldo de pavo">Caldo de pavo</option>
+                                                <option value="panucho">Panuchos yucatecos</option>
                                                 <option value="papadzules">Papadzules</option>
-                                                <option value="panuchos">Panuchos yucatecos</option>
-                                                <option value="ceviche">Ceviche</option>
-                                                <option value="sopa de lima">Sopa de lima</option>
+                                                <option value="queso relleno">Queso relleno</option>
+                                                <option value="frijol con puerco">Frijol con puerco</option>
+                                                <option value="pib">Pib</option>
+                                                <option value="relleno negro">Relleno negro</option>
+                                                <option value="cochinita pibil">Cochinita Pibil</option>
+                                                <option value="lomitos de valladolid">Lomitos de Valladolid</option>
                                             </select>
                                             <input type="submit" value="Buscar" />
                                             <div className="clearfix"> </div>
